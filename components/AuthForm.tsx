@@ -17,21 +17,25 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const formSchema = z.object({
-  fullname: z.string().min(3).max(50),
-  email: z.string().email(),
-});
-
 type FormType = "sign-in" | "sign-up";
+
+const authFormSchema = (formType: FormType) => {
+  return z.object({
+    email: z.string().nonempty('Required').email('Invalid email'),
+    fullName: formType === "sign-up" ? z.string().nonempty('Required').min(3,"Full name must contain atleast 3 characters").max(50) : z.string().optional(),
+  });
+};
 
 const AuthForm = ({ type }: { type: FormType }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
+  const formSchema = authFormSchema(type);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      fullname: "",
+      fullName: "",
       email: "",
     },
   });
@@ -50,7 +54,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
           {type === "sign-up" && (
             <FormField
               control={form.control}
-              name="fullname"
+              name="fullName"
               render={({ field }) => (
                 <FormItem>
                   <div className="shad-form-item">
