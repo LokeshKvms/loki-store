@@ -1,152 +1,180 @@
-<div align="center">
-  <br />
-    <a href="https://youtu.be/lie0cr3wESQ" target="_blank">
-      <img src="public/readme/hero.png" alt="Project Banner">
-    </a>
-  <br />
+# 🧠 Git Workflow Guide
 
-  <div>
-     <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
-    <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
-    <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
-    <img src="https://img.shields.io/badge/-Appwrite-black?style=for-the-badge&logoColor=white&logo=appwrite&color=FD366E" alt="appwrite" />
-  </div>
 
-<h3 align="center">Storage and File Sharing Platform</h3>
+## 🔧 Full Setup (from Scratch)
 
-   <div align="center">
-     Build this project step by step with our detailed tutorial on <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a> YouTube. Join the JSM family!
-    </div>
-</div>
+### 📍 Step 1: Initial Setup (One-Time Only — on any one system)
 
-## 📋 <a name="table">Table of Contents</a>
+1. Create the project folder:
+   ```bash
+   mkdir your-project
+   cd your-project
+   git init
+   ```
 
-1. 🤖 [Introduction](#introduction)
-2. ⚙️ [Tech Stack](#tech-stack)
-3. 🔋 [Features](#features)
-4. 🤸 [Quick Start](#quick-start)
-5. 🔗 [Assets](#links)
-6. 🚀 [More](#more)
+2. Create your first commit:
+   ```bash
+   echo "# Your Project Title" > README.md
+   git add .
+   git commit -m "Initial commit"
+   ```
 
-## 🚨 Tutorial
+3. Create a GitHub repo:  
+   Go to → https://github.com/new  
+   ⚠️ Do NOT check "Initialize with README" or ".gitignore"
 
-This repository contains the code corresponding to an in-depth tutorial available on our YouTube
-channel, <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a>.
+4. Connect your local repo to GitHub:
+   ```bash
+   git remote add origin git@github.com:your-username/your-repo.git
+   ```
 
-If you prefer visual learning, this is the perfect resource for you. Follow our tutorial to learn how to build projects
-like these step-by-step in a beginner-friendly manner!
+5. Push initial commit to `main`:
+   ```bash
+   git branch -M main
+   git push -u origin main
+   ```
 
-<a href="https://youtu.be/lie0cr3wESQ?si=yLQyhMrYLjpysnqE" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/1736fca5-a031-4854-8c09-bc110e3bc16d" /></a>
+✅ GitHub repo is now live.
 
-## <a name="introduction">🤖 Introduction</a>
+---
 
-A storage management and file sharing platform that lets users effortlessly upload, organize, and share files. Built with the latest Next.js 15 and the Appwrite Node SDK, utilizing advanced features for seamless file management.
+## 🖥️ Step 2: Clone the Repo on Both Systems
 
-If you're getting started and need assistance or face any bugs, join our active Discord community with over **34k+**
-members. It's a place where people help each other out.
-
-<a href="https://discord.com/invite/n6EdbFJ" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/618f4872-1e10-42da-8213-1d69e486d02e" /></a>
-
-## <a name="tech-stack">⚙️ Tech Stack</a>
-
-- React 19
-- Next.js 15
-- Appwrite
-- TailwindCSS
-- ShadCN
-- TypeScript
-
-## <a name="features">🔋 Features</a>
-
-👉 **User Authentication with Appwrite**: Implement signup, login, and logout functionality using Appwrite's authentication system.
-
-👉 **FIle Uploads**: Effortlessly upload a variety of file types, including documents, images, videos, and audio, ensuring all your important data.
-
-👉 **View and Manage Files**: Users can browse through their uploaded files stored in Appwrite storage, view on a new tab, rename file or delete.
-
-👉 **Download Files**: Users can download their uploaded files giving them instant access to essential documents.
-
-👉 **File Sharing**: Users can easily share their uploaded files with others, enabling collaboration and easy access to important content.
-
-👉 **Dashboard**: Gain insights at a glance with a dynamic dashboard that showcases total and consumed storage, recent uploads, and a summary of files grouped by type.
-
-👉 **Global Search**: Users can quickly find files and shared content across the platform with a robust global search feature.
-
-👉 **Sorting Options**: Organize files efficiently by sorting them by date, name, or size, making file management a breeze.
-
-👉 **Modern Responsive Design**: A fresh and minimalist UI that emphasizes usability, ensuring a clean aesthetic across all devices.
-
-and many more, including the latest **React 19**, **Next.js 15** and **Appwrite** features alongside code architecture and
-reusability
-
-## <a name="quick-start">🤸 Quick Start</a>
-
-Follow these steps to set up the project locally on your machine.
-
-**Prerequisites**
-
-Make sure you have the following installed on your machine:
-
-- [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/en)
-- [npm](https://www.npmjs.com/) (Node Package Manager)
-
-**Cloning the Repository**
-
+### 🔹 On System A
 ```bash
-git clone https://github.com/JavaScript-Mastery-Pro/storage_management_solution.git
-cd storage_management_solution
+git clone git@github.com:your-username/your-repo.git
+cd your-repo
 ```
 
-**Installation**
-
-Install the project dependencies using npm:
-
+### 🔹 On System B
 ```bash
-npm install
+git clone git@github.com:your-username/your-repo.git
+cd your-repo
 ```
 
-**Set Up Environment Variables**
+---
 
-Create a new file named `.env.local` in the root of your project and add the following content:
+## 🛠️ Daily Workflow (After Setup)
 
-```env
-NEXT_PUBLIC_APPWRITE_ENDPOINT="https://cloud.appwrite.io/v1"
-NEXT_PUBLIC_APPWRITE_PROJECT=""
-NEXT_PUBLIC_APPWRITE_DATABASE=""
-NEXT_PUBLIC_APPWRITE_USERS_COLLECTION=""
-NEXT_PUBLIC_APPWRITE_FILES_COLLECTION=""
-NEXT_PUBLIC_APPWRITE_BUCKET=""
-NEXT_APPWRITE_KEY=""
-```
+---
 
-Replace the values with your actual Appwrite credentials. You can obtain these credentials by signing up &
-creating a new project on the [Appwrite website](https://appwrite.io/).
+### 📌 From System A
 
-**Running the Project**
+1. Pull the latest `main`:
+   ```bash
+   git checkout main
+   git pull origin main
+   ```
 
+2. Create a new feature branch:
+   ```bash
+   git checkout -b feat/your-feature-name-from-system-a
+   ```
+
+3. Make changes and commit:
+   ```bash
+   git add .
+   git commit -m "feat: your message from system A"
+   ```
+
+4. Push the branch:
+   ```bash
+   git push origin feat/your-feature-name-from-system-a
+   ```
+
+5. Merge into `main`:  
+   Either:
+   - Open a Pull Request on GitHub  
+   OR  
+   - Merge manually (if working solo):
+     ```bash
+     git checkout main
+     git pull origin main
+     git merge feat/your-feature-name-from-system-a
+     git push origin main
+     ```
+
+---
+
+### 📌 From System B
+
+1. Pull the latest `main`:
+   ```bash
+   git checkout main
+   git pull origin main
+   ```
+
+2. Create a new feature or fix branch:
+   ```bash
+   git checkout -b fix/your-fix-name-from-system-b
+   ```
+
+3. Make changes and commit:
+   ```bash
+   git add .
+   git commit -m "fix: your message from system B"
+   ```
+
+4. Push the branch:
+   ```bash
+   git push origin fix/your-fix-name-from-system-b
+   ```
+
+5. Merge into `main`:  
+   Either:
+   - Open a Pull Request on GitHub  
+   OR  
+   - Merge manually:
+     ```bash
+     git checkout main
+     git pull origin main
+     git merge fix/your-fix-name-from-system-b
+     git push origin main
+     ```
+
+---
+
+## 🔄 Switching Between Systems
+
+Before starting work on a new system:
 ```bash
-npm run dev
+git checkout main
+git pull origin main
+git fetch --all
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+Then either:
+- Continue work on an existing branch:
+  ```bash
+  git checkout feat/your-feature-name-from-other-system
+  ```
+- Or start a new one:
+  ```bash
+  git checkout -b feat/new-task
+  ```
 
-## <a name="links">🔗 Assets</a>
+---
 
-- Assets used in the project can be found [here](https://jsm.dev/gdrive-kit)
+## 🧹 Cleanup (Optional)
 
-<a href="https://jsm.dev/gdrive-kit">
-  <img src="public/readme/videokit.png" alt="Video Kit Banner">
-</a>
+After merging a feature/fix branch:
+```bash
+git branch -d feat/your-feature-name     # Delete local branch
+git push origin --delete feat/your-feature-name  # Delete remote branch
+```
 
+---
 
-## <a name="more">🚀 More</a>
+## ✅ Best Practices
 
-**Advance your skills with Next.js Pro Course**
+- Always pull `main` before starting work
+- Always work in a dedicated branch (`feat/*`, `fix/*`)
+- Use meaningful commit messages
+- Merge via PRs or clean manual merges
+- Delete branches after merging
 
-Enjoyed creating this project? Dive deeper into our PRO courses for a richer learning adventure. They're packed with
-detailed explanations, cool features, and exercises to boost your skills. Give it a go!
+---
 
-<a href="https://jsm.dev/gdrive-jsmpro" target="_blank">
-  <img src="public/readme/jsmpro.png" alt="Project Banner">
-</a>
+## 🏁 You're all set!
+
+This setup gives you a clean, professional, and conflict-free workflow while switching between multiple systems.
